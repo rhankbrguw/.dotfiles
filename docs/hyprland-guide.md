@@ -12,8 +12,8 @@ This document outlines the keybindings for this Hyprland setup.
 | :---------------------- | :----------------------------- |
 | `Super + T`             | Open Terminal (Kitty)          |
 | `Super + E`             | Open File Manager (Dolphin)    |
-| `Super + F`             | Open Web Browser (Firefox)     |
-| `Super + C`             | Open Code Editor (VSCode)      |
+| `Super + F`             | Open Web Browser (Zen Browser) |
+| `Super + C`             | Open Code Editor (Neovim)      |
 | `Ctrl + Space`          | Open App Launcher (Rofi)       |
 | `Super + N`             | Open Wi-Fi Network Menu (Rofi) |
 | `Super + V`             | Open Clipboard History         |
