@@ -33,7 +33,7 @@ This document outlines the keybindings for this Hyprland setup.
 | `Super + Backspace` | Show Logout Menu                      |
 | `Super + W`         | Toggle Floating Window                |
 | `Super + G`         | Toggle Window Group                   |
-| `Alt + Return`      | Toggle Fullscreen                     |
+| `Alt + Enter`       | Toggle Fullscreen                     |
 | `Super + J`         | Toggle Window Split (Dwindle)         |
 | `Super + Shift + F` | Pin Window (Toggle Always on Top)     |
 | `Super + S`         | Toggle Special Workspace (Scratchpad) |
