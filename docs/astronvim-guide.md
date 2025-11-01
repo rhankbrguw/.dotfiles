@@ -1,30 +1,29 @@
------
-
 # AstroNvim Configuration
 
-A curated AstroNvim configuration optimized for a full-stack workflow, with a focus on **Laravel**, **React**, **Flutter**, and **Go**.
+A curated AstroNvim configuration optimized for full-stack development with **Laravel**, **React**, **Flutter**, and **Go**.
 
-**Main Modifier:** The `Space` key is the primary modifier, referred to as `<Space>` in this guide.
+> **Primary Modifier:** The `Space` key serves as the main modifier and is referenced as `<Space>` throughout this guide.
 
 ---
 
---
+## 🛠️ Setup & Prerequisites
 
-### 🛠️ Setup & Prerequisites
+### Core Tools
 
-This configuration assumes the following tools are installed on the system and available in your `PATH`.
+Ensure the following tools are installed and accessible in your system `PATH`:
 
-**Core Tools:**
+| Category     | Tools                  |
+| :----------- | :--------------------- |
+| **Editor**   | Neovim 0.10.0+         |
+| **Runtime**  | Node.js, PHP, Go, Dart |
+| **Database** | MariaDB, PostgreSQL    |
+| **DevOps**   | Docker, Docker Compose |
 
-- **Neovim:** `0.10.0+`
-- **Languages:** Node.js, PHP, Go, Dart
-- **Databases:** MariaDB, PostgreSQL
-- **DevOps:** Docker & Docker Compose
+### Mason Packages
 
-**Required Mason Packages:**
-To get full LSP, linting, and formatting support, install the following packages using the `:Mason` command:
+Install these packages using the `:Mason` command for full LSP, linting, and formatting support:
 
-| Language / Tool   | Packages                                                                    |
+| Language/Tool     | Required Packages                                                           |
 | :---------------- | :-------------------------------------------------------------------------- |
 | **JavaScript/TS** | `typescript-language-server`, `eslint-lsp`, `prettier`, `prettierd`         |
 | **Go**            | `gopls`, `gofumpt`, `gomodifytags`, `impl`, `goimports-reviser`             |
@@ -32,8 +31,9 @@ To get full LSP, linting, and formatting support, install the following packages
 | **Docker**        | `docker-compose-language-service`, `dockerfile-language-server`, `hadolint` |
 | **Other**         | `tailwindcss-language-server`, `sqlls`, `sqlfmt`                            |
 
-**Initial Language Setup:**
-After running `:MasonInstall ...`, you must also install the correct Tree-sitter parsers:
+### Tree-sitter Parsers
+
+After installing Mason packages, install the required Tree-sitter parsers:
 
 ```vim
 :TSInstall javascript typescript php go dart dockerfile
@@ -41,7 +41,7 @@ After running `:MasonInstall ...`, you must also install the correct Tree-sitter
 
 ---
 
-### 🧭 Basic Navigation & Editing
+## 🧭 Basic Navigation & Editing
 
 | Keybinding            | Action                                   |
 | :-------------------- | :--------------------------------------- |
@@ -58,26 +58,33 @@ After running `:MasonInstall ...`, you must also install the correct Tree-sitter
 
 ---
 
-### 📁 File & Project Management
+## 📁 File & Project Management
 
-| Keybinding                     | Action (Fuzzy Finder)                               |
-| :----------------------------- | :-------------------------------------------------- |
-| `<Space>ff`                    | Find files                                          |
-| `<Space>fw`                    | Live grep (search text in files)                    |
-| `<Space>fo`                    | Find recent files (oldfiles)                        |
-| `<Space>fb`                    | Find open buffers                                   |
-| `<Space>fk`                    | Find keymaps                                        |
-| `Ctrl+x` / `Ctrl+v` / `Ctrl+t` | (In Picker) Open in Horizontal / Vertical / New Tab |
-|                                |                                                     |
-| **Keybinding**                 | **Action (File Explorer)**                          |
-| `<Space>e`                     | Toggle Neo-tree file explorer                       |
-| `a` / `d` / `r`                | (In Neo-tree) Add / Delete / Rename file            |
-| `H`                            | (In Neo-tree) Toggle hidden files                   |
-| `q`                            | (In Neo-tree) Close                                 |
+### Fuzzy Finder
+
+| Keybinding                     | Action                                  |
+| :----------------------------- | :-------------------------------------- |
+| `<Space>ff`                    | Find files                              |
+| `<Space>fw`                    | Live grep (search text in files)        |
+| `<Space>fo`                    | Find recent files (oldfiles)            |
+| `<Space>fb`                    | Find open buffers                       |
+| `<Space>fk`                    | Find keymaps                            |
+| `Ctrl+x` / `Ctrl+v` / `Ctrl+t` | Open in Horizontal / Vertical / New Tab |
+
+### File Explorer (Neo-tree)
+
+| Keybinding | Action              |
+| :--------- | :------------------ |
+| `<Space>e` | Toggle Neo-tree     |
+| `a`        | Add file/folder     |
+| `d`        | Delete file/folder  |
+| `r`        | Rename file/folder  |
+| `H`        | Toggle hidden files |
+| `q`        | Close Neo-tree      |
 
 ---
 
-### 💻 LSP & Code Navigation
+## 💻 LSP & Code Navigation
 
 | Keybinding  | Action                                            |
 | :---------- | :------------------------------------------------ |
@@ -86,56 +93,95 @@ After running `:MasonInstall ...`, you must also install the correct Tree-sitter
 | `gi`        | Go to implementation                              |
 | `K`         | Show hover documentation                          |
 | `]d` / `[d` | Go to next / previous diagnostic (error, warning) |
-| `<Space>la` | **Code actions** (auto-import, fix, refactor)     |
+| `<Space>la` | Code actions (auto-import, fix, refactor)         |
 | `<Space>lf` | Format document                                   |
 | `<Space>lr` | Rename symbol (variable, function, class)         |
 
 ---
 
-### 🪟 Window, Buffer & Terminal
+## 🪟 Window, Buffer & Terminal Management
 
-| Keybinding       | Action                                      |
-| :--------------- | :------------------------------------------ |
-| `<Space>-`       | Split window horizontally                   |
-| `<Space>\|`      | Split window vertically                     |
-| `<Ctrl-h/j/k/l>` | Navigate to window Left / Down / Up / Right |
-| `<Space>c`       | Close current buffer (file)                 |
-| `]b` / `[b`      | Go to next / previous buffer                |
-| `<Space>tn`      | Create new tab                              |
-| `]t` / `[t`      | Go to next / previous tab                   |
-| `<Space>tt`      | Toggle floating terminal                    |
-| `<Space>th`      | Toggle horizontal terminal                  |
-| `<Esc><Esc>`     | (In Terminal mode) Exit to Normal mode      |
+### Window & Buffer Navigation
 
----
+| Keybinding     | Action                                      |
+| :------------- | :------------------------------------------ |
+| `<Space>-`     | Split window horizontally                   |
+| `<Space>\|`    | Split window vertically                     |
+| `Ctrl+h/j/k/l` | Navigate to window Left / Down / Up / Right |
+| `<Space>c`     | Close current buffer                        |
+| `]b` / `[b`    | Go to next / previous buffer                |
 
-### 🌳 Git Integration
+### Tab & Terminal
 
-| Keybinding                | Action                                 |
-| :------------------------ | :------------------------------------- |
-| `<Space>gg`               | Open **Lazygit** (full terminal UI)    |
-| `<Space>gj` / `<Space>gk` | Go to next / previous hunk (change)    |
-| `<Space>gs` / `<Space>gr` | Stage / Reset hunk                     |
-| `<Space>gp`               | Preview hunk                           |
-| `<Space>gS`               | Stage entire buffer                    |
-| `<Space>gb`               | Blame line (shows who last changed it) |
+| Keybinding  | Action                            |
+| :---------- | :-------------------------------- |
+| `<Space>tn` | Create new tab                    |
+| `]t` / `[t` | Go to next / previous tab         |
+| `<Space>tt` | Toggle floating terminal          |
+| `<Space>th` | Toggle horizontal terminal        |
+| `Esc` `Esc` | Exit Terminal mode to Normal mode |
 
 ---
 
-### 🚀 Language & Docker Workflows
+## 🌳 Git Integration
 
-| Language               | Common Workflow       | Commands & Keybinds                                           |
-| :--------------------- | :-------------------- | :------------------------------------------------------------ |
-| **JavaScript / React** | Auto-import component | Cursor on component -\> `<Space>la` -\> "Add import"          |
-|                        | Fix linting errors    | `<Space>la` -\> "ESLint: Fix all auto-fixable problems"       |
-|                        | Run dev server        | `<Space>tt` -\> `npm run dev`                                 |
-| **PHP / Laravel**      | Run Artisan commands  | `<Space>tt` -\> `docker-compose exec app php artisan migrate` |
-|                        | Navigate code         | Use `gd` on Models or Facades to jump to definition           |
-| **Go**                 | Format & Import       | Runs automatically on save (`gofumpt` / `goimports-reviser`)  |
-|                        | Run or test           | `<Space>tt` -\> `go run main.go` or `go test ./...`           |
-| **Flutter / Dart**     | Refactor widget       | Cursor on Widget -\> `<Space>la` -\> "Extract Widget"         |
-|                        | Run app               | `<Space>tt` -\> `flutter run`                                 |
-|                        | Format code           | `<Space>lf` (current file) or `dart format .` (project)       |
-| **Docker**             | Manage services       | `<Space>tt` -\> `docker-compose up -d`                        |
-|                        | View logs             | `<Space>tt` -\> `docker-compose logs -f app`                  |
-|                        | Linting               | **Hadolint** provides warnings in `Dockerfile` automatically  |
+| Keybinding                | Action                               |
+| :------------------------ | :----------------------------------- |
+| `<Space>gg`               | Open Lazygit (full terminal UI)      |
+| `<Space>gj` / `<Space>gk` | Go to next / previous hunk (change)  |
+| `<Space>gs` / `<Space>gr` | Stage / Reset hunk                   |
+| `<Space>gp`               | Preview hunk                         |
+| `<Space>gS`               | Stage entire buffer                  |
+| `<Space>gb`               | Blame line (show last change author) |
+
+---
+
+## 🚀 Language-Specific Workflows
+
+### JavaScript / React
+
+| Task               | Action                                                 |
+| :----------------- | :----------------------------------------------------- |
+| Auto-import        | Place cursor on component → `<Space>la` → "Add import" |
+| Fix linting errors | `<Space>la` → "ESLint: Fix all auto-fixable problems"  |
+| Run dev server     | `<Space>tt` → `npm run dev`                            |
+
+### PHP / Laravel
+
+| Task          | Action                                                      |
+| :------------ | :---------------------------------------------------------- |
+| Run Artisan   | `<Space>tt` → `docker-compose exec app php artisan migrate` |
+| Navigate code | Use `gd` on Models or Facades to jump to definition         |
+
+### Go
+
+| Task            | Action                                              |
+| :-------------- | :-------------------------------------------------- |
+| Format & Import | Automatic on save (`gofumpt` / `goimports-reviser`) |
+| Run/Test        | `<Space>tt` → `go run main.go` or `go test ./...`   |
+
+### Flutter / Dart
+
+| Task            | Action                                                       |
+| :-------------- | :----------------------------------------------------------- |
+| Refactor widget | Cursor on Widget → `<Space>la` → "Extract Widget"            |
+| Run app         | `<Space>tt` → `flutter run`                                  |
+| Format code     | `<Space>lf` (current file) or `dart format .` (project-wide) |
+
+### Docker
+
+| Task            | Action                                              |
+| :-------------- | :-------------------------------------------------- |
+| Manage services | `<Space>tt` → `docker-compose up -d`                |
+| View logs       | `<Space>tt` → `docker-compose logs -f app`          |
+| Linting         | Hadolint provides automatic warnings in Dockerfiles |
+
+---
+
+## 📚 Additional Resources
+
+- **AstroNvim Documentation:** [https://docs.astronvim.com](https://docs.astronvim.com)
+- **Neovim Documentation:** `:help` or [https://neovim.io/doc](https://neovim.io/doc)
+- **Mason Package Manager:** `:Mason` or `:help mason`
+
+---
