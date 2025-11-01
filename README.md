@@ -31,14 +31,6 @@ This repository contains my personal configuration files and documentation for N
     ├── neovim.md   # Neovim keybindings
     └── hyprland.md # Hyprland keybindings
 ```
-
-## Documentation
-
-| Guide | Description |
-|:------|:------------|
-| [Neovim Reference](./docs/neovim.md) | Complete keybindings and usage guide |
-| [Hyprland Reference](./docs/hyprland.md) | Window manager keybindings |
-
 ## Technology Stack
 
 ### Editor
