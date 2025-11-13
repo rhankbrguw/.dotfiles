@@ -12,31 +12,31 @@ A curated AstroNvim configuration optimized for full-stack development with **La
 
 Ensure the following tools are installed and accessible in your system `PATH`:
 
-| Category     | Tools                  |
-| :----------- | :--------------------- |
-| **Editor**   | Neovim 0.10.0+         |
-| **Runtime**  | Node.js, PHP, Go, Dart |
-| **Database** | MariaDB, PostgreSQL    |
-| **DevOps**   | Docker, Docker Compose |
+| Category     | Tools                           |
+| :----------- | :------------------------------ |
+| **Editor**   | Neovim 0.10.0+                  |
+| **Runtime**  | Node.js, PHP, Go, Dart          |
+| **Database** | MariaDB, PostgreSQL             |
+| **DevOps**   | Docker, Docker Compose, Lazygit |
 
 ### Mason Packages
 
 Install these packages using the `:Mason` command for full LSP, linting, and formatting support:
 
-| Language/Tool     | Required Packages                                                           |
-| :---------------- | :-------------------------------------------------------------------------- |
-| **JavaScript/TS** | `typescript-language-server`, `eslint-lsp`, `prettier`, `prettierd`         |
-| **Go**            | `gopls`, `gofumpt`, `gomodifytags`, `impl`, `goimports-reviser`             |
-| **PHP (Laravel)** | `intelephense`, `php-cs-fixer`, `phpstan`                                   |
-| **Docker**        | `docker-compose-language-service`, `dockerfile-language-server`, `hadolint` |
-| **Other**         | `tailwindcss-language-server`, `sqlls`, `sqlfmt`                            |
+| Language/Tool     | Required Packages                                               |
+| :---------------- | :-------------------------------------------------------------- |
+| **JavaScript/TS** | `typescript-language-server`, `eslint_d`, `prettier`            |
+| **Go**            | `gopls`, `gofumpt`, `goimports`, `delve`                        |
+| **PHP (Laravel)** | `intelephense`, `phpstan`                                       |
+| **Docker**        | `docker-compose-language-service`, `dockerfile-language-server` |
+| **Other**         | `tailwindcss-language-server`, `lua-language-server`, `stylua`  |
 
 ### Tree-sitter Parsers
 
 After installing Mason packages, install the required Tree-sitter parsers:
 
 ```vim
-:TSInstall javascript typescript php go dart dockerfile
+:TSInstall lua vim dart go php blade javascript typescript tsx jsx css html sql dockerfile yaml json markdown bash
 ```
 
 ---
@@ -60,7 +60,7 @@ After installing Mason packages, install the required Tree-sitter parsers:
 
 ## 📁 File & Project Management
 
-### Fuzzy Finder
+### Fuzzy Finder (Telescope)
 
 | Keybinding                     | Action                                  |
 | :----------------------------- | :-------------------------------------- |
@@ -111,32 +111,70 @@ After installing Mason packages, install the required Tree-sitter parsers:
 | `<Space>c`     | Close current buffer                        |
 | `]b` / `[b`    | Go to next / previous buffer                |
 
-### Tab & Terminal
+### Terminal Management
 
-| Keybinding  | Action                            |
-| :---------- | :-------------------------------- |
-| `<Space>tn` | Create new tab                    |
-| `]t` / `[t` | Go to next / previous tab         |
-| `<Space>tt` | Toggle floating terminal          |
-| `<Space>th` | Toggle horizontal terminal        |
-| `Esc` `Esc` | Exit Terminal mode to Normal mode |
+| Keybinding     | Action                                           |
+| :------------- | :----------------------------------------------- |
+| `<Space>tt`    | Toggle terminal (persistent)                     |
+| `Ctrl+x`       | Hide terminal (from terminal mode)               |
+| `Ctrl+h/j/k/l` | Navigate to window from terminal (terminal mode) |
+
+### Tab Management
+
+| Keybinding  | Action                    |
+| :---------- | :------------------------ |
+| `<Space>tn` | Create new tab            |
+| `]t` / `[t` | Go to next / previous tab |
 
 ---
 
-## 🌳 Git Integration
+## 🌳 Git Integration (Lazygit)
 
-| Keybinding                | Action                               |
-| :------------------------ | :----------------------------------- |
-| `<Space>gg`               | Open Lazygit (full terminal UI)      |
-| `<Space>gj` / `<Space>gk` | Go to next / previous hunk (change)  |
-| `<Space>gs` / `<Space>gr` | Stage / Reset hunk                   |
-| `<Space>gp`               | Preview hunk                         |
-| `<Space>gS`               | Stage entire buffer                  |
-| `<Space>gb`               | Blame line (show last change author) |
+| Keybinding  | Action                          |
+| :---------- | :------------------------------ |
+| `<Space>Gg` | Open Lazygit (full terminal UI) |
+| `<Space>Gs` | Stage current file              |
+| `<Space>Gc` | Commit (prompts for message)    |
+| `<Space>Gp` | Push to remote                  |
+| `<Space>Gl` | Show git log (last 20 commits)  |
+| `<Space>Gd` | Show git diff                   |
+
+### Inside Lazygit
+
+| Keybinding | Action             |
+| :--------- | :----------------- |
+| `1`        | Status panel       |
+| `2`        | Files panel        |
+| `3`        | Branches panel     |
+| `4`        | Commits panel      |
+| `5`        | Stash panel        |
+| `Space`    | Stage/unstage file |
+| `c`        | Commit             |
+| `P`        | Push               |
+| `p`        | Pull               |
+| `q`        | Quit Lazygit       |
+| `?`        | Show help          |
 
 ---
 
 ## 🚀 Language-Specific Workflows
+
+### Flutter / Dart
+
+| Keybinding  | Action                               |
+| :---------- | :----------------------------------- |
+| `<Space>xr` | Run Flutter app (hot reload enabled) |
+| `<Space>xw` | Run Flutter web (Chrome)             |
+| `<Space>xe` | Launch Android emulator (Pixel 6)    |
+| `<Space>xq` | Quit Flutter app                     |
+
+**Hot Reload Workflow:**
+
+1. Run app: `<Space>xr`
+2. Edit code in Neovim
+3. Press `r` in terminal for hot reload
+4. Press `Ctrl+x` to hide terminal
+5. Press `<Space>tt` to show terminal again
 
 ### JavaScript / React
 
@@ -144,37 +182,38 @@ After installing Mason packages, install the required Tree-sitter parsers:
 | :----------------- | :----------------------------------------------------- |
 | Auto-import        | Place cursor on component → `<Space>la` → "Add import" |
 | Fix linting errors | `<Space>la` → "ESLint: Fix all auto-fixable problems"  |
+| Format code        | `<Space>lf` (auto-formats with Prettier)               |
 | Run dev server     | `<Space>tt` → `npm run dev`                            |
 
 ### PHP / Laravel
 
-| Task          | Action                                                      |
-| :------------ | :---------------------------------------------------------- |
-| Run Artisan   | `<Space>tt` → `docker-compose exec app php artisan migrate` |
-| Navigate code | Use `gd` on Models or Facades to jump to definition         |
+| Task          | Action                                              |
+| :------------ | :-------------------------------------------------- |
+| Run Artisan   | `<Space>tt` → `php artisan migrate`                 |
+| Navigate code | Use `gd` on Models or Facades to jump to definition |
+| Format code   | Automatic on save (PSR-12 standard)                 |
 
 ### Go
 
-| Task            | Action                                              |
-| :-------------- | :-------------------------------------------------- |
-| Format & Import | Automatic on save (`gofumpt` / `goimports-reviser`) |
-| Run/Test        | `<Space>tt` → `go run main.go` or `go test ./...`   |
+| Task            | Action                                       |
+| :-------------- | :------------------------------------------- |
+| Format & Import | Automatic on save (`gofumpt` + `goimports`)  |
+| Run             | `<Space>tt` → `go run main.go`               |
+| Test            | `<Space>tt` → `go test ./...`                |
+| Debug           | Use `<Space>d` for DAP debugger (with Delve) |
 
-### Flutter / Dart
+---
 
-| Task            | Action                                                       |
-| :-------------- | :----------------------------------------------------------- |
-| Refactor widget | Cursor on Widget → `<Space>la` → "Extract Widget"            |
-| Run app         | `<Space>tt` → `flutter run`                                  |
-| Format code     | `<Space>lf` (current file) or `dart format .` (project-wide) |
+## 🐳 Docker Management
 
-### Docker
+| Keybinding  | Action                     |
+| :---------- | :------------------------- |
+| `<Space>Du` | Docker compose up          |
+| `<Space>Dd` | Docker compose down        |
+| `<Space>Dl` | Docker compose logs (tail) |
+| `<Space>Ds` | Docker compose status      |
 
-| Task            | Action                                              |
-| :-------------- | :-------------------------------------------------- |
-| Manage services | `<Space>tt` → `docker-compose up -d`                |
-| View logs       | `<Space>tt` → `docker-compose logs -f app`          |
-| Linting         | Hadolint provides automatic warnings in Dockerfiles |
+**Note:** Must be in project directory with `docker-compose.yml` file.
 
 ---
 
@@ -183,5 +222,31 @@ After installing Mason packages, install the required Tree-sitter parsers:
 - **AstroNvim Documentation:** [https://docs.astronvim.com](https://docs.astronvim.com)
 - **Neovim Documentation:** `:help` or [https://neovim.io/doc](https://neovim.io/doc)
 - **Mason Package Manager:** `:Mason` or `:help mason`
+- **Lazygit:** [https://github.com/jesseduffield/lazygit](https://github.com/jesseduffield/lazygit)
 
 ---
+
+## 🔧 Quick Reference Card
+
+### Most Used Commands
+
+| Category     | Keybind     | Action           |
+| ------------ | ----------- | ---------------- |
+| **Files**    | `<Space>ff` | Find file        |
+| **Code**     | `gd`        | Go to definition |
+| **LSP**      | `<Space>la` | Code actions     |
+| **Format**   | `<Space>lf` | Format code      |
+| **Terminal** | `<Space>tt` | Toggle terminal  |
+| **Git**      | `<Space>Gg` | Open Lazygit     |
+| **Flutter**  | `<Space>xr` | Run Flutter      |
+| **Docker**   | `<Space>Du` | Docker up        |
+
+---
+
+## 💡 Pro Tips
+
+- **Format on save** is enabled for all languages
+- **Go imports** auto-organize on save
+- **Terminal persists** - use `Ctrl+x` to hide, not `:q`
+- **Lazygit** opens in new tab for better workflow
+- **Capital letters** (`G`, `D`, `X`) avoid keybind conflicts
