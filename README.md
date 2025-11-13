@@ -17,119 +17,47 @@
 ```
 .dotfiles/
 ├── config/
-│   ├── hypr/                    # Hyprland compositor configuration
-│   │   ├── animations.conf      # Animation settings
+│   ├── hypr/                    # Hyprland compositor
 │   │   ├── hyprland.conf        # Main config
-│   │   ├── hyprlock.conf        # Lock screen
-│   │   ├── keybindings.conf     # Keyboard shortcuts
+│   │   ├── keybindings.conf     # Shortcuts
 │   │   ├── monitors.conf        # Display setup
-│   │   ├── themes/              # Theme system
-│   │   │   ├── colors.conf
-│   │   │   ├── common.conf
-│   │   │   ├── theme/           # 10 pre-configured themes
-│   │   │   │   ├── Catppucin-Latte.conf
-│   │   │   │   ├── Catppucin-Mocha.conf
-│   │   │   │   ├── Cyberpunk-Edge.conf
-│   │   │   │   ├── Decay-Green.conf
-│   │   │   │   ├── Frosted-Glass.conf
-│   │   │   │   ├── Graphite-Mono.conf
-│   │   │   │   ├── Gruvbox-Retro.conf
-│   │   │   │   ├── Material-Sakura.conf
-│   │   │   │   ├── Rose-Pine.conf
-│   │   │   │   └── Tokyo-Night.conf
-│   │   │   └── theme.conf
-│   │   ├── userprefs.conf       # Personal preferences
-│   │   └── windowrules.conf     # Window behavior
-│   ├── nvim/                    # Neovim configuration
-│   │   ├── init.lua             # Entry point
-│   │   ├── lazy-lock.json       # Plugin versions
-│   │   ├── lua/
-│   │   │   ├── community.lua
-│   │   │   ├── lazy_setup.lua
-│   │   │   ├── plugins/         # Plugin configurations
-│   │   │   │   ├── astrocore.lua
-│   │   │   │   ├── astrolsp.lua
-│   │   │   │   ├── astroui.lua
-│   │   │   │   ├── mason.lua
-│   │   │   │   ├── none-ls.lua
-│   │   │   │   ├── treesitter.lua
-│   │   │   │   └── user.lua
-│   │   │   └── polish.lua
-│   │   ├── neovim.yml
-│   │   └── selene.toml
-│   ├── waybar/                  # Status bar configuration
-│   │   ├── config.ctl
-│   │   ├── config.jsonc         # Main config
-│   │   ├── modules/             # Waybar modules
-│   │   │   ├── backlight.jsonc
-│   │   │   ├── battrey.jsonc
-│   │   │   ├── bluetooth.jsonc
-│   │   │   ├── cliphist.jsonc
-│   │   │   ├── clock.jsonc
-│   │   │   ├── cpu.jsonc
-│   │   │   ├── footer.jsonc
-│   │   │   ├── gpuinfo.jsonc
-│   │   │   ├── header.jsonc
-│   │   │   ├── idle_inhibitor.jsonc
-│   │   │   ├── keybindhint.jsonc
-│   │   │   ├── language.jsonc
-│   │   │   ├── mediaplayer.py
-│   │   │   ├── memory.jsonc
-│   │   │   ├── mode.jsonc
-│   │   │   ├── mpris.jsonc
-│   │   │   ├── network.jsonc
-│   │   │   ├── notifications.jsonc
-│   │   │   ├── power.jsonc
-│   │   │   ├── pulseaudio.jsonc
-│   │   │   ├── spotify.jsonc
-│   │   │   ├── style.css
-│   │   │   ├── taskbar.jsonc
-│   │   │   ├── theme.jsonc
-│   │   │   ├── tray.jsonc
-│   │   │   ├── updates.jsonc
-│   │   │   ├── wallchange.jsonc
-│   │   │   ├── wbar.jsonc
-│   │   │   ├── window.jsonc
-│   │   │   └── workspaces.jsonc
+│   │   ├── userprefs.conf       # Personal prefs
+│   │   ├── windowrules.conf     # Window rules
+│   │   ├── animations.conf      # Animations
+│   │   ├── hyprlock.conf        # Lock screen
+│   │   └── themes/
+│   │       ├── colors.conf
+│   │       ├── common.conf
+│   │       ├── theme.conf
+│   │       └── theme/           # Prebuilt themes (Catppuccin, Gruvbox, etc.)
+│   │
+│   ├── nvim/                    # Neovim (AstroNvim-based)
+│   │   ├── init.lua
+│   │   ├── lazy-lock.json
+│   │   └── lua/
+│   │       ├── plugins/         # Plugin configs (astrocore, treesitter, mason, etc.)
+│   │       └── polish.lua
+│   │
+│   ├── waybar/                  # Waybar status bar
+│   │   ├── config.jsonc
 │   │   ├── style.css
-│   │   └── theme.css
+│   │   └── modules/             # Individual modules (clock, network, battery, etc.)
+│   │
 │   └── wlogout/                 # Logout menu
-│       ├── icons/               # System action icons
-│       │   ├── hibernate_black.png
-│       │   ├── hibernate_dark.png
-│       │   ├── hibernate_light.png
-│       │   ├── hibernate_white.png
-│       │   ├── lock_black.png
-│       │   ├── lock_dark.png
-│       │   ├── lock_light.png
-│       │   ├── lock_white.png
-│       │   ├── logout_black.png
-│       │   ├── logout_dark.png
-│       │   ├── logout_light.png
-│       │   ├── logout_white.png
-│       │   ├── reboot_black.png
-│       │   ├── reboot_dark.png
-│       │   ├── reboot_light.png
-│       │   ├── reboot_white.png
-│       │   ├── shutdown_black.png
-│       │   ├── shutdown_dark.png
-│       │   ├── shutdown_light.png
-│       │   ├── shutdown_white.png
-│       │   ├── suspend_black.png
-│       │   ├── suspend_dark.png
-│       │   ├── suspend_light.png
-│       │   └── suspend_white.png
+│       ├── icons/               # Power, lock, suspend, etc.
 │       ├── layout_1
 │       ├── layout_2
 │       ├── style_1.css
 │       └── style_2.css
+│
 ├── docs/
-│   ├── astronvim-guide.md       # Neovim keybindings reference
-│   └── hyprland-guide.md        # Hyprland keybindings reference
+│   ├── astronvim-guide.md       # Neovim keybindings
+│   └── hyprland-guide.md        # Hyprland keybindings
+│
 ├── local/
-│   └── share/
-│       └── bin/
-│           └── themeswitch.sh   # Theme switcher script
+│   └── share/bin/
+│       └── themeswitch.sh       # Theme switcher script
+│
 └── README.md
 ```
 
