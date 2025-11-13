@@ -81,6 +81,8 @@ This document outlines the keybindings for this Hyprland setup.
 | `Super + P`        | Screenshot a Selected Region      |
 | `Super + Ctrl + P` | Screenshot Region (Frozen Screen) |
 | `Super + Alt + P`  | Screenshot Focused Monitor        |
+| `Super + R`        | Screenrecord a Selected Region    |
+| `Super + Alt + R`  | Screenrecord Focused Monitor      |
 
 ---
 
