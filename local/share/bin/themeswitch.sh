@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # Initialize script variables and validate theme detection
 scrDir="$(dirname "$(realpath "$0")")"
 source "${scrDir}/globalcontrol.sh"
