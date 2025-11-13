@@ -73,7 +73,7 @@ This document outlines the keybindings for this Hyprland setup.
 
 ---
 
-### 📸 Screenshots
+### 📸 Screenshots/Screenrecords
 
 | Keybinding         | Action                            |
 | :----------------- | :-------------------------------- |
