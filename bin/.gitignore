@@ -1,0 +1,20 @@
+# Backup lokal (JANGAN PERNAH masuk Git!)
+*.bak
+cfg_backups/
+
+# File log & temp
+*.log
+*~
+*.swp
+*.swo
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Local bin: hanya themeswitch.sh yang penting
+local/share/bin/*
+!local/share/bin/themeswitch.sh
+
+# Hyde backups (kalau ada)
+hyde/
