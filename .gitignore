@@ -11,7 +11,3 @@ cfg_backups/
 # OS junk
 .DS_Store
 Thumbs.db
-
-local/share/bin/*
-!local/share/bin/themeswitch.sh
-
