@@ -1,4 +1,4 @@
-# Backup lokal (JANGAN PERNAH masuk Git!)
+# Backup local 
 *.bak
 cfg_backups/
 
@@ -12,9 +12,6 @@ cfg_backups/
 .DS_Store
 Thumbs.db
 
-# Local bin: hanya themeswitch.sh yang penting
 local/share/bin/*
 !local/share/bin/themeswitch.sh
 
-# Hyde backups (kalau ada)
-hyde/
