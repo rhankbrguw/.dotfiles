@@ -15,6 +15,8 @@ LINKS=(
     ["$DOTFILES/config/nvim"]="$HOME/.config/nvim"
     ["$DOTFILES/config/wlogout"]="$HOME/.config/wlogout"
     ["$DOTFILES/local/share/bin/themeswitch.sh"]="$HOME/.local/share/bin/themeswitch.sh"
+    ["$DOTFILES/config/rofi"]="$HOME/.config/rofi"
+    ["$DOTFILES/local/share/bin/rofi-wifi-menu.sh"]="$HOME/.local/share/bin/rofi-wifi-menu.sh"
 )
 
 GREEN='\033[0;32m'
