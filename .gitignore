@@ -1,0 +1,13 @@
+# Backup local 
+*.bak
+cfg_backups/
+
+# File log & temp
+*.log
+*~
+*.swp
+*.swo
+
+# OS junk
+.DS_Store
+Thumbs.db
